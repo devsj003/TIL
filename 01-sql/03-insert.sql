@@ -1,13 +1,13 @@
 -- 03-insert.sql
 
 INSERT INTO members (id, name, email, join_date)
-VALUES (1,'승정','100@mail.com','2026-01-12');
+VALUES (1,'이름','100@mail.com','2026-01-12');
 
 -- 테이블 모든 데이터 확인
 SELECT * FROM members;
 
 INSERT INTO members (id, name, email, join_date)
-VALUES (2,'승정','200@mail.com','2026-01-09');
+VALUES (2,'이름','200@mail.com','2026-01-09');
 
 INSERT INTO members (id, name)
 VALUES (3,'김길동'), (4,'홍길동');
