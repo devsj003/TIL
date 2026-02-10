@@ -1,0 +1,36 @@
+-- 16-subquery2.sql
+/*
+Scala  -> 데이터 1개 | 14.56
+Vector -> 데이터 1줄 | ("인천", "대구", "부산", "광주", "서울")
+Matrix -> 행*열
+*/
+
+-- Scala
+SELECT AVG(total_amount) FROM sales;
+-- Vector
+SELECT DISTINCT region from sales;
+
+-- VIP들의 주문내역만 확인
+SELECT customer_id FROM customers WHERE customer_type='VIP';
+
+SELECT * FROM sales 
+WHERE customer_id 
+-- IN ("C001","C005","C010","C013","C025","C026","C028","C029","C037","C040")
+IN (SELECT customer_id, FROM customers WHERE customer_type='VIP');
+
+
+
+
+
+-- 전자 제품을 구매한 고객들의 customer_id의 모든 주문
+SELECT 
+	DISTINCT customer_id	
+FROM sales WHERE category='전자제품';
+
+SELECT *
+FROM sales 
+WHERE customer_id IN (
+	SELECT 
+	DISTINCT customer_id	
+	FROM sales WHERE category='전자제품');
+
